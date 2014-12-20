@@ -47,7 +47,7 @@ class NewVisitorTest(unittest.TestCase):
         #        table.text,
         #    )
         #)
-        self.assertIn('1: Buy peacock feathers', [row.text for row in rows])
+        self.assertIn('Buy peacock feathers', [row.text for row in rows])
         
         self.fail('Finish the test!')
         
