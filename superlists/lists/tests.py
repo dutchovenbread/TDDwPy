@@ -33,7 +33,7 @@ class HomePageTest(TestCase):
         self.assertEqual(new_item.text, 'A new list item')
 
 
-    def test_home_page_redirects_after_post(self):
+    def test_home_page_redirects_after_POST(self):
         request = HttpRequest()
         request.method = 'POST'
         request.POST['item_text'] = 'A new list item'
@@ -55,6 +55,16 @@ class HomePageTest(TestCase):
         request = HttpRequest()
         home_page(request)
         self.assertEqual(Item.objects.count(), 0)
+        
+    def test_home_page_displays_all_list_items(self):
+        Item.objects.create(text='itemey1')
+        Item.objects.create(text='itemey2')
+        
+        request = HttpRequest()
+        response = home_page(request)
+        
+        self.assertIn('itemey1', response.content.decode())
+        self.assertIn('itemey2', response.content.decode())
         
 
 class ItemModelTest(TestCase):
