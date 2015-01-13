@@ -96,9 +96,9 @@ class NewVisitorTest(StaticLiveServerTestCase):
         # She notices the input box is nicely centered
         inputbox = self.browser.find_element_by_id('id_new_item')
         self.assertAlmostEqual(
-            inputbox.location['x'] + inputbox.size['width'] ,
-            512,
-            delta=10
+            inputbox.location['x'] + inputbox.size['width'] /2,
+            260,
+            delta=25
         )
         
         # She starts a new list and sees the input is nicely
@@ -106,8 +106,8 @@ class NewVisitorTest(StaticLiveServerTestCase):
         inputbox.send_keys('testing\n')
         inputbox = self.browser.find_element_by_id('id_new_item')
         self.assertAlmostEqual(
-            inputbox.location['x'] + inputbox.size['width'] ,
-            512,
-            delta=10
+            inputbox.location['x'] + inputbox.size['width'] /2,
+            260,
+            delta=25
         )
         
