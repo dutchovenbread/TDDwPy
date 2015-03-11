@@ -1,5 +1,4 @@
 Django==1.7.1
-Django==1.7.1
 colorama==0.3.2
 mock==1.0.1
 py==1.4.26
